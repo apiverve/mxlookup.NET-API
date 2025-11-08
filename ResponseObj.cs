@@ -4,40 +4,43 @@ using Newtonsoft.Json;
 
 namespace APIVerve
 {
-public class mx
-{
-    [JsonProperty("priority")]
-    public int priority { get; set; }
+    /// <summary>
+    /// Mx data
+    /// </summary>
+    public class Mx
+    {
+        [JsonProperty("priority")]
+        public int Priority { get; set; }
 
-    [JsonProperty("exchange")]
-    public string exchange { get; set; }
+        [JsonProperty("exchange")]
+        public string Exchange { get; set; }
 
-}
+    }
+    /// <summary>
+    /// Data data
+    /// </summary>
+    public class Data
+    {
+        [JsonProperty("domain")]
+        public string Domain { get; set; }
 
-public class data
-{
-    [JsonProperty("domain")]
-    public string domain { get; set; }
+        [JsonProperty("mx")]
+        public Mx[] Mx { get; set; }
 
-    [JsonProperty("mx")]
-    public mx[] mx { get; set; }
+    }
+    /// <summary>
+    /// API Response object
+    /// </summary>
+    public class ResponseObj
+    {
+        [JsonProperty("status")]
+        public string Status { get; set; }
 
-}
+        [JsonProperty("error")]
+        public object Error { get; set; }
 
-public class ResponseObj
-{
-    [JsonProperty("status")]
-    public string status { get; set; }
+        [JsonProperty("data")]
+        public Data Data { get; set; }
 
-    [JsonProperty("error")]
-    public object error { get; set; }
-
-    [JsonProperty("data")]
-    public data data { get; set; }
-
-    [JsonProperty("code")]
-    public int code { get; set; }
-
-}
-
+    }
 }
